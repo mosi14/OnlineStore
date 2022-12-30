@@ -8,7 +8,7 @@ import userRouter from './routes/userRoutes.js';
 import orderRouter from './routes/orderRoutes.js';
 
 dotenv.config();
-
+mongoose.set('strictQuery', false);
 mongoose.connect(process.env.MONGODB_URL).then(()=>{
   console.log("connected to the db")
 }).catch((err)=>{
