@@ -9,12 +9,15 @@ import orderRouter from './routes/orderRoutes.js';
 import uploadRouter from './routes/uploadRoutes.js';
 
 dotenv.config();
-mongoose.set('strictQuery', false);
-mongoose.connect(process.env.MONGODB_URL).then(()=>{
-  console.log("connected to the db")
-}).catch((err)=>{
-  console.log(err.message);
-});
+
+mongoose
+  .connect(process.env.MONGODB_URL)
+  .then(() => {
+    console.log('connected to db');
+  })
+  .catch((err) => {
+    console.log(err.message);
+  });
 
 const app = express();
 
@@ -24,9 +27,8 @@ app.use(express.urlencoded({ extended: true }));
 app.get('/api/keys/paypal', (req, res) => {
   res.send(process.env.PAYPAL_CLIENT_ID || 'sb');
 });
-
 app.get('/api/keys/google', (req, res) => {
-  res.send(process.env.GOOGLE_API_KEY || '');
+  res.send({ key: process.env.GOOGLE_API_KEY || '' });
 });
 
 app.use('/api/upload', uploadRouter);
