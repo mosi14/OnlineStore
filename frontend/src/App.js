@@ -20,7 +20,9 @@ import PlaceOrderScreen from './screens/PlaceOrderScreen';
 import ProductEditScreen from './screens/ProductEditScreen';
 import OrderScreen from './screens/OrderScreen';
 import OrderHistoryScreen from './screens/OrderHistoryScreen';
+import UserEditScreen from './screens/UserEditScreen';
 import ProductListScreen from './screens/ProductListScreen';
+import UserListScreen from './screens/UserListScreen';
 import OrderListScreen from './screens/OrderListScreen';
 import ProfileScreen from './screens/ProfileScreen';
 import ProtectedRoute from './components/ProtectedRoute';
@@ -209,6 +211,14 @@ function App() {
                 }
               />
               <Route
+                path="/admin/users"
+                element={
+                  <AdminRoute>
+                    <UserListScreen />
+                  </AdminRoute>
+                }
+              />
+              <Route
                 path="/admin/products"
                 element={
                   <AdminRoute>
@@ -221,6 +231,14 @@ function App() {
                 element={
                   <AdminRoute>
                     <ProductEditScreen />
+                  </AdminRoute>
+                }
+              />
+              <Route
+                path="/admin/user/:id"
+                element={
+                  <AdminRoute>
+                    <UserEditScreen />
                   </AdminRoute>
                 }
               />
