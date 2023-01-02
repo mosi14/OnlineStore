@@ -28,7 +28,7 @@ import ProfileScreen from './screens/ProfileScreen';
 import ProtectedRoute from './components/ProtectedRoute';
 import DashboardScreen from './screens/DashboardScreen';
 import AdminRoute from './components/AdminRoute';
-import SearchBox from './components/SearchBox';
+// import SearchBox from './components/SearchBox';
 import MapScreen from './screens/MapScreen';
 import Button from 'react-bootstrap/Button';
 import { getError } from './utils';
@@ -75,29 +75,22 @@ function App() {
       >
         <ToastContainer position="bottom-center" limit={1} />
         <header>
-          <Navbar bg="dark" variant="dark" expand="lg">
+          <Navbar bg="light" variant="light" expand="lg">
             <Container>
               <Button
-                variant="dark"
+                variant="light"
+                className="text-cray"
                 onClick={() => setSidebarIsOpen(!sidebarIsOpen)}
               >
-                <i className="fas fa-bars"></i>
+                <i className="fas fa-bars"></i> &nbsp; Brand
               </Button>
               <LinkContainer to="/">
-                <Navbar.Brand>Online Store</Navbar.Brand>
+                <Navbar.Brand  className="text-cray">Summer Shopping Store</Navbar.Brand>
               </LinkContainer>
               <Navbar.Toggle aria-controls="basic-navbar-nav" />
               <Navbar.Collapse id="basic-navbar-nav">
-                <SearchBox />
+                {/* <SearchBox /> */}
                 <Nav className="me-auto  w-100  justify-content-end">
-                  <Link to="/cart" className="nav-link">
-                    Cart
-                    {cart.cartItems.length > 0 && (
-                      <Badge pill bg="danger">
-                        {cart.cartItems.reduce((a, c) => a + c.quantity, 0)}
-                      </Badge>
-                    )}
-                  </Link>
                   {userInfo ? (
                     <NavDropdown title={userInfo.name} id="basic-nav-dropdown">
                       <LinkContainer to="/profile">
@@ -117,9 +110,17 @@ function App() {
                     </NavDropdown>
                   ) : (
                     <Link className="nav-link" to="/signin">
-                      Sign In
+                      <i className="fas fa-user"></i>&nbsp; Account
                     </Link>
                   )}
+                  <Link to="/cart" className="nav-link">
+                    <i className="fas fa-shopping-basket"></i>&nbsp;Cart&nbsp;
+                    {cart.cartItems.length > 0 && (
+                      <Badge pill bg="danger">
+                        {cart.cartItems.reduce((a, c) => a + c.quantity, 0)}
+                      </Badge>
+                    )}
+                  </Link>
                   {userInfo && userInfo.isAdmin && (
                     <NavDropdown title="Admin" id="admin-nav-dropdown">
                       <LinkContainer to="/admin/dashboard">
@@ -141,14 +142,15 @@ function App() {
             </Container>
           </Navbar>
         </header>
+        <hr/>
         <div
           className={
             sidebarIsOpen
-              ? 'active-nav side-navbar d-flex justify-content-between flex-wrap flex-column'
+              ? 'active-nav side-navbar d-flex justify-content-between flex-wrap flex-column p-4'
               : 'side-navbar d-flex justify-content-between flex-wrap flex-column'
           }
         >
-          <Nav className="flex-column text-white w-100 p-2">
+          <Nav className="flex-column text-black w-100 p-2">
             <Nav.Item>
               <strong>Categories</strong>
             </Nav.Item>

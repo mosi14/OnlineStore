@@ -69,7 +69,7 @@ export default function CartScreen() {
                         variant="light"
                         disabled={item.quantity === 1}
                       >
-                        <i className="fas fa-minus-circle"></i>
+                       <i class="fa-thin fa-basket-shopping-simple"></i>
                       </Button>{' '}
                       <span>{item.quantity}</span>{' '}
                       <Button
@@ -112,7 +112,7 @@ export default function CartScreen() {
                   <div className="d-grid">
                     <Button
                       type="button"
-                      variant="primary"
+                      variant="secondary"
                       onClick={checkoutHandler}
                       disabled={cartItems.length === 0}
                     >

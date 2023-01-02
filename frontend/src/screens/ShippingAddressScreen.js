@@ -127,7 +127,7 @@ export default function ShippingAddressScreen() {
           </div>
 
           <div className="mb-3">
-            <Button variant="primary" type="submit">
+            <Button variant="secondary" type="submit">
               Continue
             </Button>
           </div>

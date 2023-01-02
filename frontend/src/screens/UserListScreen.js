@@ -120,15 +120,16 @@ export default function UserListScreen() {
                 <td>
                   <Button
                     type="button"
-                    variant="light"
+                    variant="outline-success"
                     onClick={() => navigate(`/admin/user/${user._id}`)}
                   >
                     Edit
                   </Button>
                   &nbsp;
                   <Button
+
                     type="button"
-                    variant="light"
+                    variant="outline-danger"
                     onClick={() => deleteHandler(user)}
                   >
                     Delete
