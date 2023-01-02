@@ -46,18 +46,18 @@ function App() {
   };
 
   const [sidebarIsOpen, setSidebarIsOpen] = useState(false);
-  const [categories, setCategories] = useState([]);
+  const [brands, setBrands] = useState([]);
 
   useEffect(() => {
-    const fetchCategories = async () => {
+    const fetchBrands = async () => {
       try {
-        const { data } = await axios.get(`/api/products/categories`);
-        setCategories(data);
+        const { data } = await axios.get(`/api/products/brands`);
+        setBrands(data);
       } catch (err) {
         toast.error(getError(err));
       }
     };
-    fetchCategories();
+    fetchBrands();
   }, []);
 
   return (
@@ -152,15 +152,15 @@ function App() {
         >
           <Nav className="flex-column text-black w-100 p-2">
             <Nav.Item>
-              <strong>Categories</strong>
+              <strong>Brands</strong>
             </Nav.Item>
-            {categories.map((category) => (
-              <Nav.Item key={category}>
+            {brands.map((brand) => (
+              <Nav.Item key={brand}>
                 <LinkContainer
-                  to={{ pathname: '/search', search: `category=${category}` }}
+                  to={{ pathname: '/search', search: `brand=${brand}` }}
                   onClick={() => setSidebarIsOpen(false)}
                 >
-                  <Nav.Link>{category}</Nav.Link>
+                  <Nav.Link>{brand}</Nav.Link>
                 </LinkContainer>
               </Nav.Item>
             ))}
