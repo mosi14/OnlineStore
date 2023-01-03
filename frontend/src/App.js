@@ -85,7 +85,9 @@ function App() {
                 <i className="fas fa-bars"></i> &nbsp; Brand
               </Button>
               <LinkContainer to="/">
-                <Navbar.Brand  className="text-cray">Summer Shopping Store</Navbar.Brand>
+                <Navbar.Brand className="text-cray">
+                  Summer Shopping Store
+                </Navbar.Brand>
               </LinkContainer>
               <Navbar.Toggle aria-controls="basic-navbar-nav" />
               <Navbar.Collapse id="basic-navbar-nav">
@@ -142,7 +144,7 @@ function App() {
             </Container>
           </Navbar>
         </header>
-        <hr/>
+        <hr />
         <div
           className={
             sidebarIsOpen
@@ -152,7 +154,15 @@ function App() {
         >
           <Nav className="flex-column text-black w-100 p-2">
             <Nav.Item>
-              <strong>Brands</strong>
+              <Button
+                onClick={() => setSidebarIsOpen(!sidebarIsOpen)}
+                variant="light"
+              >
+                <i className="fas fa-times"></i> &nbsp;To close
+              </Button>
+              <br />
+              <br />
+              <h4 className="text-dark-cray">Brands</h4>
             </Nav.Item>
             {brands.map((brand) => (
               <Nav.Item key={brand}>
@@ -160,8 +170,9 @@ function App() {
                   to={{ pathname: '/search', search: `brand=${brand}` }}
                   onClick={() => setSidebarIsOpen(false)}
                 >
-                  <Nav.Link>{brand}</Nav.Link>
+                  <Nav.Link className="text-dark-cray">{brand}</Nav.Link>
                 </LinkContainer>
+                <i className="fas fa-chevron-right"></i>
               </Nav.Item>
             ))}
           </Nav>
