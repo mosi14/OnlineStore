@@ -103,6 +103,7 @@ productRouter.get(
     const pageSize = query.pageSize || PAGE_SIZE;
     const page = query.page || 1;
     const category = query.category || '';
+    const brand = query.brand || '';
     const price = query.price || '';
     const rating = query.rating || '';
     const order = query.order || '';
@@ -117,6 +118,7 @@ productRouter.get(
             },
           }
         : {};
+    const brandFilter = brand && brand !== 'all' ? { brand } : {};
     const categoryFilter = category && category !== 'all' ? { category } : {};
     const ratingFilter =
       rating && rating !== 'all'
@@ -151,6 +153,7 @@ productRouter.get(
 
     const products = await Product.find({
       ...queryFilter,
+      ...brandFilter,
       ...categoryFilter,
       ...priceFilter,
       ...ratingFilter,
@@ -161,6 +164,7 @@ productRouter.get(
 
     const countProducts = await Product.countDocuments({
       ...queryFilter,
+      ...brandFilter,
       ...categoryFilter,
       ...priceFilter,
       ...ratingFilter,
