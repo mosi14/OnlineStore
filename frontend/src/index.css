@@ -159,12 +159,20 @@ button.thumbnail {
   color: rgb(68, 68, 68);
 }
 
+.products .card .card-body> a{
+  text-decoration: none;
+  color:#19110b;
+}
+
 @media only screen and (max-width: 768px) {
   /* For mobile phones: */
   /* [class*="col-"] {
     width: 100%;
   } */
-  .card a>.card-img-top{
+  .products .card a>.card-img-top{
     height: 10rem;
+  }
+  .products .card .card-body .h5{
+    font-size: 1rem;
   }
 }
