@@ -158,3 +158,13 @@ button.thumbnail {
 .text-dark-cray{
   color: rgb(68, 68, 68);
 }
+
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  /* [class*="col-"] {
+    width: 100%;
+  } */
+  .card a>.card-img-top{
+    height: 10rem;
+  }
+}
