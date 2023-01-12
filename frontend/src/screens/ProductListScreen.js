@@ -143,7 +143,12 @@ export default function ProductListScreen() {
         </Col>
         <Col className="col text-end">
           <div>
-            <Button  variant="outline-primary" type="button" onClick={createHandler}>
+            <Button
+              variant="outline-primary"
+              type="button"
+              onClick={() => navigate('/admin/product/new-product')}
+              // onClick={createHandler}
+            >
               Create Product
             </Button>
           </div>
