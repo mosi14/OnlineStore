@@ -69,7 +69,7 @@ export default function CartScreen() {
                         variant="light"
                         disabled={item.quantity === 1}
                       >
-                       <i class="fa-thin fa-basket-shopping-simple"></i>
+                       <i class="fas fa-minus-circle"></i>
                       </Button>{' '}
                       <span>{item.quantity}</span>{' '}
                       <Button
